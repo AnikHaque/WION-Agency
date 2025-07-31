@@ -86,11 +86,6 @@ README.md
   <hr class="my-6 border-gray-300">
 
   <h2 class="text-2xl font-semibold mb-4">Validation Rules (Add/Edit Modal)</h2>
-  <ul class="list-disc list-inside space-y-2">
-    <li>Title: required, min 3 characters.</li>
-    <li>Tag: required.</li>
-    <li>Status: required.</li>
-    <li>Description: optional, max 150 characters.</li>
-  </ul>
+ 
 
 </div>
