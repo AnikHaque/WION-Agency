@@ -85,7 +85,7 @@ README.md
 
   <hr class="my-6 border-gray-300">
 
-  <h2 class="text-2xl font-semibold mb-4">Validation Rules (Add/Edit Modal)</h2>
+
  
 
 </div>
