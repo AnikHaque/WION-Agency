@@ -5,6 +5,7 @@ import { Hero } from "./components/Hero";
 import { PortfolioPreview } from "./components/Portfolio";
 import { Services } from "./components/Services";
 import Header from "./components/shared/Navbar";
+import { Stats } from "./components/Stats";
 import { Testimonials } from "./components/Testimonial";
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
    <Hero></Hero>
    <Services></Services>
    <PortfolioPreview></PortfolioPreview>
+   <Stats></Stats>
    <Testimonials></Testimonials>
    <CTA></CTA>
    <Footer></Footer>
