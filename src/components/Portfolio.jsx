@@ -1,63 +1,192 @@
-// PortfolioPreview.jsx
-import React from "react";
+import React, { useState } from "react";
 
-export function PortfolioPreview() {
-  const items = [
-    { img: "https://wp.framerpeak.com/wion/wp-content/uploads/2025/10/h1-services-thumb3.png", title: "App Design", category: "Mobile App" },
-    { img: "https://wp.framerpeak.com/wion/wp-content/uploads/2025/10/h1-services-thumb3.png", title: "Website Redesign", category: "Web Design" },
-    { img: "https://wp.framerpeak.com/wion/wp-content/uploads/2025/10/h1-services-thumb3.png", title: "Dashboard UI", category: "UI/UX" },
-    { img: "https://wp.framerpeak.com/wion/wp-content/uploads/2025/10/h1-services-thumb3.png", title: "E-commerce Platform", category: "Web App" },
-    { img: "https://wp.framerpeak.com/wion/wp-content/uploads/2025/10/h1-services-thumb3.png", title: "Landing Page", category: "Marketing" },
-    { img: "https://wp.framerpeak.com/wion/wp-content/uploads/2025/10/h1-services-thumb3.png", title: "Branding Design", category: "Creative" },
-  ];
+const Portfolio = () => {
+  const [showCard, setShowCard] = useState("all");
+
+  const handleProject = (category) => {
+    setShowCard(category);
+  };
 
   return (
-    <section id="portfolio" className="py-20 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-6 text-center">
-        <h2 className="text-4xl font-bold mb-12 text-black">Our Portfolio</h2>
-        <p className="text-gray-600 mb-12 text-lg max-w-2xl mx-auto">
-          A showcase of our latest projects. We combine creativity, innovation, and technology to deliver outstanding results.
-        </p>
-
-        <div className="grid md:grid-cols-3 gap-6">
-          {/* Featured Project */}
-          <div className="md:col-span-2 relative rounded-xl overflow-hidden shadow-lg group cursor-pointer">
-            <img
-              src={items[0].img}
-              alt={items[0].title}
-              className="w-full h-full object-cover transform group-hover:scale-105 transition duration-500"
-            />
-            <div className="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-center items-center opacity-0 group-hover:opacity-100 transition duration-500">
-              <h3 className="text-3xl font-bold text-white">{items[0].title}</h3>
-              <p className="text-white mt-2">{items[0].category}</p>
+    <>
+      <section className="pt-20 pb-12 lg:pt-[120px] lg:pb-[90px] bg-gray-50 text-black">
+        <div className="container mx-auto">
+          <div className="flex flex-wrap -mx-4">
+            <div className="w-full px-4">
+              <div className="mx-auto mb-[60px] max-w-[510px] text-center">
+                <span className="text-primary mb-2 block text-lg font-semibold">
+                  Our Portfolio
+                </span>
+                <h2 className="text-dark mb-3 text-3xl leading-[1.208] font-bold sm:text-4xl md:text-[40px]">
+                  Our Recent Projects
+                </h2>
+                <p className="text-body-color text-base dark:text-dark-6">
+                  There are many variations of passages of Lorem Ipsum available
+                  but the majority have suffered alteration in some form.
+                </p>
+              </div>
             </div>
           </div>
 
-          {/* Small Projects */}
-          <div className="grid grid-cols-1 gap-6">
-            {items.slice(1).map((p, i) => (
-              <div
-                key={i}
-                className="relative rounded-xl overflow-hidden shadow-lg group cursor-pointer"
-              >
-                <img
-                  src={p.img}
-                  alt={p.title}
-                  className="w-full h-48 object-cover transform group-hover:scale-105 transition duration-500"
-                />
-                <div className="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-center items-center opacity-0 group-hover:opacity-100 transition duration-500">
-                  <h3 className="text-xl font-semibold text-white">{p.title}</h3>
-                  <p className="text-white mt-1">{p.category}</p>
-                </div>
-              </div>
-            ))}
+          <div className="w-full flex flex-wrap justify-center -mx-4">
+            <div className="w-full px-4">
+              <ul className="flex flex-wrap justify-center mb-12 space-x-1">
+                <li className="mb-1">
+                  <button
+                    onClick={() => handleProject("all")}
+                    className={`inline-block rounded-lg py-2 px-5 text-center text-base font-semibold transition md:py-3 lg:px-8 ${
+                      showCard === "all"
+                        ? "activeClasses bg-primary text-white"
+                        : "inactiveClasses text-body-color dark:text-dark-6 hover:bg-primary hover:text-white"
+                    }`}
+                  >
+                    All Projects
+                  </button>
+                </li>
+                <li className="mb-1">
+                  <button
+                    onClick={() => handleProject("branding")}
+                    className={`inline-block rounded-lg py-2 px-5 text-center text-base font-semibold transition md:py-3 lg:px-8 ${
+                      showCard === "branding"
+                        ? "activeClasses bg-primary text-white"
+                        : "inactiveClasses text-body-color dark:text-dark-6 hover:bg-primary hover:text-white"
+                    }`}
+                  >
+                    Branding
+                  </button>
+                </li>
+                <li className="mb-1">
+                  <button
+                    onClick={() => handleProject("design")}
+                    className={`inline-block rounded-lg py-2 px-5 text-center text-base font-semibold transition md:py-3 lg:px-8 ${
+                      showCard === "design"
+                        ? "activeClasses bg-primary text-white"
+                        : "inactiveClasses text-body-color dark:text-dark-6 hover:bg-primary hover:text-white"
+                    }`}
+                  >
+                    Design
+                  </button>
+                </li>
+                <li className="mb-1">
+                  <button
+                    onClick={() => handleProject("marketing")}
+                    className={`inline-block rounded-lg py-2 px-5 text-center text-base font-semibold transition md:py-3 lg:px-8 ${
+                      showCard === "marketing"
+                        ? "activeClasses bg-primary text-white"
+                        : "inactiveClasses text-body-color dark:text-dark-6 hover:bg-primary hover:text-white"
+                    }`}
+                  >
+                    Marketing
+                  </button>
+                </li>
+                <li className="mb-1">
+                  <button
+                    onClick={() => handleProject("development")}
+                    className={`inline-block rounded-lg py-2 px-5 text-center text-base font-semibold transition md:py-3 lg:px-8 ${
+                      showCard === "development"
+                        ? "activeClasses bg-primary text-white"
+                        : "inactiveClasses text-body-color dark:text-dark-6 hover:bg-primary hover:text-white"
+                    }`}
+                  >
+                    Development
+                  </button>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div className=" max-w-7xl mx-auto px-4 flex flex-wrap -mx-4">
+            <PortfolioCard
+              ImageHref="https://cdn.tailgrids.com/assets/images/marketing/portfolio/portfolio-01/image-01.jpg"
+              category="Branding"
+              title="Creative Agency"
+              button="View Details"
+              buttonHref="#"
+              showCard={showCard}
+            />
+            <PortfolioCard
+              ImageHref="https://cdn.tailgrids.com/assets/images/marketing/portfolio/portfolio-01/image-06.jpg"
+              category="marketing"
+              title="Creative Agency"
+              button="View Details"
+              buttonHref="#"
+              showCard={showCard}
+            />
+            <PortfolioCard
+              ImageHref="https://cdn.tailgrids.com/assets/images/marketing/portfolio/portfolio-01/image-02.jpg"
+              category="marketing"
+              title="Creative Agency"
+              button="View Details"
+              buttonHref="#"
+              showCard={showCard}
+            />
+            <PortfolioCard
+              ImageHref="https://cdn.tailgrids.com/assets/images/marketing/portfolio/portfolio-01/image-03.jpg"
+              category="Development"
+              title="Creative Agency"
+              button="View Details"
+              buttonHref="#"
+              showCard={showCard}
+            />
+            <PortfolioCard
+              ImageHref="https://cdn.tailgrids.com/assets/images/marketing/portfolio/portfolio-01/image-04.jpg"
+              category="Design"
+              title="Creative Agency"
+              button="View Details"
+              buttonHref="#"
+              showCard={showCard}
+            />
+            <PortfolioCard
+              ImageHref="https://cdn.tailgrids.com/assets/images/marketing/portfolio/portfolio-01/image-05.jpg"
+              category="Marketing"
+              title="Creative Agency"
+              button="View Details"
+              buttonHref="#"
+              showCard={showCard}
+            />
           </div>
         </div>
-
-        <button className="mt-12 px-8 py-3 bg-indigo-600 text-white rounded-lg font-semibold hover:bg-indigo-700 transition">
-          View All Projects
-        </button>
-      </div>
-    </section>
+      </section>
+    </>
   );
-}
+};
+
+export default Portfolio;
+
+const PortfolioCard = ({
+  showCard,
+  category,
+  ImageHref,
+  title,
+  button,
+  buttonHref,
+}) => {
+  return (
+    <>
+      <div
+        className={`w-full px-4 md:w-1/2 xl:w-1/3 ${
+          showCard === "all" || showCard === category.toLowerCase()
+            ? "block"
+            : "hidden"
+        }`}
+      >
+        <div className="relative mb-12">
+          <div className="overflow-hidden rounded-[10px]">
+            <img src={ImageHref} alt="portfolio" className="w-full" />
+          </div>
+          <div className="relative z-10 mx-7 -mt-20 rounded-lg bg-white dark:bg-dark-2 py-[34px] px-3 text-center shadow-portfolio dark:shadow-box-dark">
+            <span className="text-primary mb-2 block text-sm font-medium">
+              {category}
+            </span>
+            <h3 className="text-dark  mb-5 text-xl font-bold">{title}</h3>
+            <a
+              href={buttonHref}
+              className="text-body-color dark:text-dark-6 hover:border-primary hover:bg-primary inline-block rounded-md border border-stroke dark:border-dark-3 py-[10px] px-7 text-sm font-medium transition hover:text-white"
+            >
+              {button}
+            </a>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+};

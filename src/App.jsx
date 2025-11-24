@@ -2,12 +2,10 @@
 import { CTA } from "./components/CTA";
 import { Footer } from "./components/Footer";
 import { Hero } from "./components/Hero";
-import { PortfolioPreview } from "./components/Portfolio";
-import { Services } from "./components/Services";
 import Header from "./components/shared/Navbar";
 import { Stats } from "./components/Stats";
-
-
+import Service from './components/Services'
+import Portfolio from './components/Portfolio'
 function App() {
  
 
@@ -15,8 +13,8 @@ function App() {
    <>
    <Header></Header>
    <Hero></Hero>
-   <Services></Services>
-   <PortfolioPreview></PortfolioPreview>
+   <Service></Service>
+   <Portfolio></Portfolio>
    <Stats></Stats>
    <CTA></CTA>
    <Footer></Footer>
