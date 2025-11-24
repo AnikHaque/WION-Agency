@@ -1,5 +1,5 @@
 // Stats.jsx
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 
 export function Stats() {
   const stats = [
@@ -10,27 +10,43 @@ export function Stats() {
   ];
 
   const [counts, setCounts] = useState(stats.map(() => 0));
+  const [hasCounted, setHasCounted] = useState(false); // track if counting already happened
+  const sectionRef = useRef(null);
 
   useEffect(() => {
-    const incrementSpeed = 30; // ms per increment
-    const intervals = stats.map((stat, index) => {
-      const step = Math.ceil(stat.number / (2000 / incrementSpeed)); // 2 seconds animation
-      return setInterval(() => {
-        setCounts((prev) => {
-          const newCounts = [...prev];
-          if (newCounts[index] < stat.number) {
-            newCounts[index] = Math.min(newCounts[index] + step, stat.number);
-          }
-          return newCounts;
-        });
-      }, incrementSpeed);
-    });
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !hasCounted) {
+          setHasCounted(true); // trigger only once
+          stats.forEach((stat, index) => {
+            const incrementSpeed = 30; // ms per increment
+            const step = Math.ceil(stat.number / (2000 / incrementSpeed)); // 2s duration
+            const interval = setInterval(() => {
+              setCounts((prev) => {
+                const newCounts = [...prev];
+                if (newCounts[index] < stat.number) {
+                  newCounts[index] = Math.min(newCounts[index] + step, stat.number);
+                }
+                return newCounts;
+              });
+            }, incrementSpeed);
+          });
+        }
+      },
+      { threshold: 0.5 } // trigger when 50% visible
+    );
 
-    return () => intervals.forEach(clearInterval);
-  }, []);
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) observer.unobserve(sectionRef.current);
+    };
+  }, [hasCounted, stats]);
 
   return (
-    <section className="py-20 bg-indigo-50 dark:bg-gray-900">
+    <section ref={sectionRef} className="py-20 bg-indigo-50 dark:bg-gray-900">
       <div className="max-w-7xl mx-auto px-6 text-center">
         <h2 className="text-4xl font-bold text-gray-800 dark:text-white mb-6">
           Our Achievements
