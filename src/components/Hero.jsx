@@ -18,10 +18,10 @@ export default function HeroSection() {
       className={`bg-gradient-to-b px-3 sm:px-10 from-[#F5F7FF] via-[#fffbee] to-[#E6EFFF] pt-6 h-full ${
         menuOpen ? "overflow-hidden" : ""
       }`}
-      style={{ fontFamily: "Poppins, sans-serif" }}
+     
     >
       {/* HEADER */}
-      <header className="flex items-center justify-between px-6 py-3 md:py-4 shadow-sm max-w-5xl rounded-full mx-auto w-full bg-white">
+      <header className="flex items-center justify-between px-6 py-3 md:py-4 shadow-sm max-w-7xl rounded-full mx-auto w-full bg-white">
         {/* LOGO */}
         <a href="#">
           <img

@@ -10,22 +10,27 @@ export function Stats() {
   ];
 
   const [counts, setCounts] = useState(stats.map(() => 0));
-  const [hasCounted, setHasCounted] = useState(false); // track if counting already happened
+  const [hasCounted, setHasCounted] = useState(false);
   const sectionRef = useRef(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting && !hasCounted) {
-          setHasCounted(true); // trigger only once
+          setHasCounted(true);
+
           stats.forEach((stat, index) => {
-            const incrementSpeed = 30; // ms per increment
-            const step = Math.ceil(stat.number / (2000 / incrementSpeed)); // 2s duration
+            const incrementSpeed = 30;
+            const step = Math.ceil(stat.number / (2000 / incrementSpeed));
+
             const interval = setInterval(() => {
               setCounts((prev) => {
                 const newCounts = [...prev];
                 if (newCounts[index] < stat.number) {
-                  newCounts[index] = Math.min(newCounts[index] + step, stat.number);
+                  newCounts[index] = Math.min(
+                    newCounts[index] + step,
+                    stat.number
+                  );
                 }
                 return newCounts;
               });
@@ -33,12 +38,10 @@ export function Stats() {
           });
         }
       },
-      { threshold: 0.5 } // trigger when 50% visible
+      { threshold: 0.5 }
     );
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
+    if (sectionRef.current) observer.observe(sectionRef.current);
 
     return () => {
       if (sectionRef.current) observer.unobserve(sectionRef.current);
@@ -47,12 +50,13 @@ export function Stats() {
 
   return (
     <section ref={sectionRef} className="py-20 bg-indigo-50 dark:bg-gray-900">
-      <div className="max-w-7xl mx-auto px-6 text-center">
+      <div className="max-w-7xl mx-auto px-4 text-center">
         <h2 className="text-4xl font-bold text-gray-800 dark:text-white mb-6">
           Our Achievements
         </h2>
         <p className="text-gray-600 dark:text-gray-300 mb-16 text-lg max-w-2xl mx-auto">
-          We are proud of the impact we've made. Our numbers speak for our dedication and expertise.
+          We are proud of the impact we've made. Our numbers speak for our dedication and
+          expertise.
         </p>
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-10">
@@ -65,7 +69,9 @@ export function Stats() {
                 {counts[idx]}
                 {stat.suffix}
               </h3>
-              <p className="text-gray-700 dark:text-gray-300 font-medium">{stat.label}</p>
+              <p className="text-gray-700 dark:text-gray-300 font-medium">
+                {stat.label}
+              </p>
             </div>
           ))}
         </div>
