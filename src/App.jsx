@@ -7,6 +7,7 @@ import { Hero } from "./components/Hero";
 import Header from "./components/shared/Navbar";
 import About1 from "./components/About";
 import Footer from './components/Footer'
+import { Testimonial } from "./components/Testimonial";
 function App() {
  
 
@@ -19,6 +20,7 @@ function App() {
    <About1></About1>
    <Portfolio></Portfolio>
    <Stats></Stats>
+   <Testimonial></Testimonial>
    <CTA></CTA>
    <Footer></Footer>
    </>
