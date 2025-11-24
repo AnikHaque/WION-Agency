@@ -1,8 +1,9 @@
 export function Services() {
 const items = [
-{ title: "Web Development", desc: "High‑performance, scalable digital solutions." },
-{ title: "UI/UX Design", desc: "Beautiful and intuitive designs for your brand." },
-{ title: "Brand Identity", desc: "Professional branding to make your business stand out." }
+{ title: "Web Development", desc: "High‑performance, scalable digital solutions.",img:"https://wp.framerpeak.com/wion/wp-content/uploads/2025/10/h1-services-thumb3.png" },
+{ title: "Digital Marketing", desc: "High‑performance, scalable digital solutions.",img:"https://wp.framerpeak.com/wion/wp-content/uploads/2025/10/h1-services-thumb5.png" },
+{ title: "UI/UX Design", desc: "Beautiful and intuitive designs for your brand.",img:"https://wp.framerpeak.com/wion/wp-content/uploads/2025/10/h1-services-thumb2.png" },
+{ title: "Brand Identity", desc: "Professional branding to make your business stand out.",img:"https://wp.framerpeak.com/wion/wp-content/uploads/2025/10/h1-services-thumb1.png" }
 ];
 
 
@@ -16,15 +17,13 @@ return (
     <div className="card  lg:max-w-lg shadow-sm p-6">
   <figure>
     <img
-      src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
+      src={s.img}
       alt="Shoes" />
   </figure>
   <div className="card-body text-black">
-    <h2 className="card-title">Card Title</h2>
-    <p>A card component has a figure, a body part, and inside body there are title and actions parts</p>
-    <div className="card-actions justify-end">
-      <button className="btn btn-primary">Buy Now</button>
-    </div>
+    <h2 className="card-title">{s.title}</h2>
+    <p>{s.desc}</p>
+    
   </div>
 </div>
     </div>
