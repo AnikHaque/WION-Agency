@@ -51,27 +51,27 @@ const Portfolio = () => {
           {/* GRID */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
             <PortfolioCard
-              ImageHref="https://cdn.tailgrids.com/assets/images/marketing/portfolio/portfolio-01/image-01.jpg"
+              ImageHref="https://wp.framerpeak.com/wion/wp-content/uploads/2025/10/h1-project-thumb2.png"
               category="branding"
-              title="Creative Agency"
+              title="VoltEdge"
               button="View Details"
               buttonHref="#"
               showCard={showCard}
             />
 
             <PortfolioCard
-              ImageHref="https://cdn.tailgrids.com/assets/images/marketing/portfolio/portfolio-01/image-06.jpg"
-              category="marketing"
-              title="Creative Agency"
+              ImageHref="https://wp.framerpeak.com/wion/wp-content/uploads/2025/10/h1-project-thumb1.png"
+              category="App Design"
+              title="Lunora"
               button="View Details"
               buttonHref="#"
               showCard={showCard}
             />
 
             <PortfolioCard
-              ImageHref="https://cdn.tailgrids.com/assets/images/marketing/portfolio/portfolio-01/image-02.jpg"
-              category="marketing"
-              title="Creative Agency"
+              ImageHref="https://wp.framerpeak.com/wion/wp-content/uploads/2025/10/h1-project-thumb4.png"
+              category="branding"
+              title="Haus&Co"
               button="View Details"
               buttonHref="#"
               showCard={showCard}
