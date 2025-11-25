@@ -1,31 +1,15 @@
 
-import { CTA } from "./components/CTA";
-import { Stats } from "./components/Stats";
-import Service from './components/Services'
-import Portfolio from './components/Portfolio'
+import { Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import FeatureDetails from "./components/FeatureDetails";
 
 
-import Footer from './components/Footer'
-import { Testimonial } from "./components/Testimonial";
-
-import About from "./components/About";
-import HeroSection from "./components/Hero";
-function App() {
- 
-
+export default function App() {
   return (
-   <>
-
-<HeroSection></HeroSection>
-
-   <About></About>
-   <Portfolio></Portfolio>
-   <Stats></Stats>
-   <Testimonial></Testimonial>
-   <CTA></CTA>
-   <Footer></Footer>
-   </>
+    <Routes>
+      <Route path="/" element={< Home/>} />
+      <Route path="/features/:id" element={<FeatureDetails />} />
+    </Routes>
   );
 }
 
-export default App;
