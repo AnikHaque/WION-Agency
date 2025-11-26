@@ -3,6 +3,7 @@ import Home from "./pages/Home";
 import FeatureDetails from "./components/FeatureDetails";
 import AboutPage from "./pages/About";
 import Layout from "./Layout/MainLayout";
+import Portfolio from "./pages/Portfolio";
 
 
 export default function App() {
@@ -12,6 +13,7 @@ export default function App() {
       <Route element={<Layout />}>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<AboutPage />} />
+        <Route path="/portfolio" element={<Portfolio />} />
         <Route path="/features/:id" element={<FeatureDetails />} />
       </Route>
     </Routes>

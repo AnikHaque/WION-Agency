@@ -1,4 +1,4 @@
-
+import PortfolioBreadcrumb from "../utils/PortfolioBredcrumb";
 
 const PortfolioBanner = () => {
   return (
@@ -9,13 +9,17 @@ const PortfolioBanner = () => {
           "url('https://wp.framerpeak.com/wion/wp-content/uploads/2025/10/inner-ab2-thumb10.png')",
       }}
     >
-      {/* Dark Overlay */}
-      <div className="absolute inset-0"></div>
+      {/* WRAPPER TO STACK HEADING + BREADCRUMB */}
+      <div className="flex flex-col items-center space-y-4">
+        <h1 className="relative text-white text-4xl md:text-5xl font-semibold bg-gray-500 p-4">
+          Our Portfolio
+        </h1>
 
-      {/* Text */}
-      <h1 className="relative text-white text-4xl md:text-5xl font-semibold bg-gray-500 p-4">
-        About Us
-      </h1>
+        {/* Breadcrumb under heading */}
+        <div className=" bg-opacity-40 px-4 py-1 rounded-md">
+          <PortfolioBreadcrumb />
+        </div>
+      </div>
     </div>
   );
 };
