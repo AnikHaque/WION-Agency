@@ -1,11 +1,7 @@
 
 import { Stats } from "../components/Stats";
 import Portfolio from '../components/Portfolio'
-
-
-import Footer from '../components/Footer'
 import { Testimonial } from "../components/Testimonial";
-
 import About from "../components/About";
 import HeroSection from "../components/Hero";
 import Features from "../components/Featured";
@@ -24,7 +20,6 @@ export default function Home() {
    <Services></Services>
    <Testimonial></Testimonial>
    <Promotional></Promotional>
-   <Footer></Footer> 
    </>
   );
 }
