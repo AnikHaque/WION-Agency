@@ -1,96 +1,117 @@
-import { useState } from "react";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
-export default function Navbar() {
-  const [open, setOpen] = useState(false);
+const Navbar = () => {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <nav className="
-    flex items-center justify-between
-    bg-black mt-2
-    border border-slate-700 
-    px-6 py-4 
-    rounded-full 
-    text-white text-sm 
-    max-w-6xl w-full mx-auto
-  ">
+    <nav className="h-[70px] relative w-full px-6 md:px-16 lg:px-24 xl:px-32 flex items-center justify-between z-20 bg-white text-gray-700 shadow-[0px_4px_25px_0px_#0000000D] transition-all">
+      
       {/* Logo */}
-      <a href="https://prebuiltui.com">
-        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-          <circle cx="4.706" cy="16" r="4.706" fill="#D9D9D9" />
-          <circle cx="16.001" cy="4.706" r="4.706" fill="#D9D9D9" />
-          <circle cx="16.001" cy="27.294" r="4.706" fill="#D9D9D9" />
-          <circle cx="27.294" cy="16" r="4.706" fill="#D9D9D9" />
-        </svg>
-      </a>
+      <Link to="/" className="text-indigo-600">
+       <img src="https://wp.framerpeak.com/wion/wp-content/uploads/2025/10/logo-dark.svg"></img>
+      </Link>
 
       {/* Desktop Menu */}
-      <div className="hidden md:flex items-center gap-6 ml-7">
-        {["Products", "Stories", "Pricing", "Docs"].map((item) => (
-          <a key={item} href="#" className="relative overflow-hidden h-6 group">
-            <span className="block group-hover:-translate-y-full transition-transform duration-300">
-              {item}
-            </span>
-            <span className="block absolute top-full left-0 group-hover:translate-y-[-100%] transition-transform duration-300">
-              {item}
-            </span>
-          </a>
-        ))}
-      </div>
+      <ul className="md:flex hidden items-center gap-10">
+        <li>
+          <Link to="/" className="hover:text-gray-500/80 transition">
+            Home
+          </Link>
+        </li>
+        <li>
+          <Link to="/services" className="hover:text-gray-500/80 transition">
+            Services
+          </Link>
+        </li>
+        <li>
+          <Link to="/portfolio" className="hover:text-gray-500/80 transition">
+            Portfolio
+          </Link>
+        </li>
+        <li>
+          <Link to="/pricing" className="hover:text-gray-500/80 transition">
+            Pricing
+          </Link>
+        </li>
+      </ul>
 
-      {/* Desktop Buttons */}
-      <div className="hidden ml-14 md:flex items-center gap-4">
-        <button className="border border-slate-600 hover:bg-slate-800 px-4 py-2 rounded-full text-sm font-medium transition">
-          Contact
-        </button>
-        <button className="bg-white hover:shadow-[0px_0px_30px_14px] shadow-[0px_0px_30px_7px] hover:shadow-white/50 shadow-white/50 text-black px-4 py-2 rounded-full text-sm font-medium hover:bg-slate-100 transition duration-300">
-          Get Started
-        </button>
-      </div>
-
-      {/* Mobile Menu Toggle */}
+      {/* Desktop Button */}
       <button
-        onClick={() => setOpen(!open)}
-        className="md:hidden text-gray-300"
+        type="button"
+        className="bg-white text-gray-600 border border-gray-300 md:inline hidden text-sm hover:bg-gray-50 active:scale-95 transition-all w-40 h-11 rounded-full"
+      >
+        Get started
+      </button>
+
+      {/* Mobile Menu Button */}
+      <button
+        aria-label="menu-btn"
+        type="button"
+        className="menu-btn inline-block md:hidden active:scale-90 transition"
+        onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
       >
         <svg
-          className="w-6 h-6"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          viewBox="0 0 24 24"
-          strokeLinecap="round"
-          strokeLinejoin="round"
+          xmlns="http://www.w3.org/2000/svg"
+          width="30"
+          height="30"
+          viewBox="0 0 30 30"
+          fill="#000"
         >
-          <path d="M4 6h16M4 12h16M4 18h16" />
+          <path d="M 3 7 A 1.0001 1.0001 0 1 0 3 9 L 27 9 A 1.0001 1.0001 0 1 0 27 7 L 3 7 z M 3 14 A 1.0001 1.0001 0 1 0 3 16 L 27 16 A 1.0001 1.0001 0 1 0 27 14 L 3 14 z M 3 21 A 1.0001 1.0001 0 1 0 3 23 L 27 23 A 1.0001 1.0001 0 1 0 27 21 L 3 21 z"></path>
         </svg>
       </button>
 
       {/* Mobile Menu */}
       <div
-        className={`${
-          open ? "flex" : "hidden"
-        } absolute top-48 left-0 bg-black w-full flex-col items-center gap-4 text-base py-6`}
+        className={`mobile-menu absolute top-[70px] left-0 w-full bg-white p-6 md:hidden ${
+          mobileMenuOpen ? "block" : "hidden"
+        }`}
       >
-        <a className="hover:text-indigo-600" href="#">
-          Products
-        </a>
-        <a className="hover:text-indigo-600" href="#">
-          Customer Stories
-        </a>
-        <a className="hover:text-indigo-600" href="#">
-          Pricing
-        </a>
-        <a className="hover:text-indigo-600" href="#">
-          Docs
-        </a>
+        <ul className="flex flex-col space-y-4 text-lg">
+          <li>
+            <Link to="/" className="text-sm" onClick={() => setMobileMenuOpen(false)}>
+              Home
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="/services"
+              className="text-sm"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Services
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="/portfolio"
+              className="text-sm"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Portfolio
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="/pricing"
+              className="text-sm"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Pricing
+            </Link>
+          </li>
+        </ul>
 
-        <button className="border border-slate-600 hover:bg-slate-800 px-4 py-2 rounded-full text-sm font-medium transition">
-          Contact
-        </button>
-        <button className="bg-white hover:shadow-[0px_0px_30px_14px] shadow-[0px_0px_30px_7px] hover:shadow-white/50 shadow-white/50 text-black px-4 py-2 rounded-full text-sm font-medium hover:bg-slate-100 transition duration-300">
-          Get Started
+        <button
+          type="button"
+          className="bg-white text-gray-600 border border-gray-300 mt-6 text-sm hover:bg-gray-50 active:scale-95 transition-all w-40 h-11 rounded-full"
+        >
+          Get started
         </button>
       </div>
     </nav>
   );
-}
+};
+
+export default Navbar;
