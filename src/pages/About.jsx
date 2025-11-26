@@ -1,5 +1,6 @@
 import AboutBanner from "../components/AboutBanner";
 import AboutFeatures from "../components/AboutFeatures";
+import AboutGrid from "../components/AboutGrid";
 
 
 const AboutPage = () => {
@@ -7,6 +8,7 @@ const AboutPage = () => {
     <>
     <AboutBanner></AboutBanner>
     <AboutFeatures></AboutFeatures>
+    <AboutGrid></AboutGrid>
     
     </>
   );
