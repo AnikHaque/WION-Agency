@@ -21,7 +21,7 @@ const teamMembers = [
 const AboutTeamSection = () => {
   return (
     <>
-    <div className="mt-20">
+    <div className="mt-20 ">
  <h1 className="text-3xl font-semibold text-slate-800 text-center">
         Meet Our Team
       </h1>
@@ -29,7 +29,7 @@ const AboutTeamSection = () => {
         The people behind the product, passionate about what they do.
       </p>
 
-      <div className="flex flex-wrap items-center justify-center gap-6 mt-12">
+      <div className=" flex flex-wrap items-center justify-center gap-28 mt-12">
         {teamMembers.map((member, index) => (
           <div key={index} className="max-w-80 bg-black text-white rounded-2xl">
             <div className="relative -mt-px overflow-hidden rounded-2xl">
