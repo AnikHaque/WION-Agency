@@ -5,6 +5,7 @@ import AboutPage from "./pages/About";
 import Layout from "./Layout/MainLayout";
 import Portfolio from "./pages/Portfolio";
 import ContactPage from "./pages/ContactPage";
+import FaqPage from "./pages/Faq";
 
 
 export default function App() {
@@ -15,6 +16,7 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/portfolio" element={<Portfolio />} />
+         <Route path="/faq" element={<FaqPage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/features/:id" element={<FeatureDetails />} />
       </Route>
