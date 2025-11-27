@@ -1,0 +1,108 @@
+export default function FaqCallToAction() {
+  return (
+    <section className="bg-blue-500 py-20 lg:py-[120px] mt-20">
+      <div className="container mx-auto">
+        <div className="relative z-10 overflow-hidden rounded-sm bg-primary px-8 py-12 md:p-[70px]">
+          <div className="-mx-4 flex flex-wrap items-center">
+            {/* Left Text Section */}
+            <div className="w-full px-4 lg:w-1/2">
+              <span className="mb-4 block text-base font-medium text-white">
+                Find Your Next Dream App
+              </span>
+              <h2 className="mb-6 text-3xl font-bold leading-tight text-white sm:mb-8 sm:text-[40px]/[48px] lg:mb-0">
+                <span className="xs:block">Get started with</span>{" "}
+                <span>our free trial</span>
+              </h2>
+            </div>
+
+            {/* Buttons */}
+            <div className="w-full px-4 lg:w-1/2">
+              <div className="flex flex-wrap lg:justify-end">
+                <a
+                  href="#"
+                  className="hover:bg-shadow-1 my-1 mr-4 inline-flex rounded-md bg-white px-7 py-3 text-base font-medium text-primary transition"
+                >
+                  Get Pro Version
+                </a>
+                <a
+                  href="#"
+                  className="my-1 inline-flex rounded-md bg-secondary px-7 py-3 text-base font-medium text-white transition hover:bg-secondary/90"
+                >
+                  Start Free Trial
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* Decorative SVGs */}
+          <div>
+            {/* Left SVG */}
+            <span className="absolute left-0 top-0 z-[-1]">
+              <svg
+                width="189"
+                height="162"
+                viewBox="0 0 189 162"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <ellipse
+                  cx="16"
+                  cy="-16.5"
+                  rx="173"
+                  ry="178.5"
+                  transform="rotate(180 16 -16.5)"
+                  fill="url(#paint0_linear_left)"
+                />
+                <defs>
+                  <linearGradient
+                    id="paint0_linear_left"
+                    x1="-157"
+                    y1="-107.754"
+                    x2="98.5011"
+                    y2="-106.425"
+                    gradientUnits="userSpaceOnUse"
+                  >
+                    <stop stopColor="white" stopOpacity="0.07" />
+                    <stop offset="1" stopColor="white" stopOpacity="0" />
+                  </linearGradient>
+                </defs>
+              </svg>
+            </span>
+
+            {/* Right SVG */}
+            <span className="absolute bottom-0 right-0 z-[-1]">
+              <svg
+                width="191"
+                height="208"
+                viewBox="0 0 191 208"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <ellipse
+                  cx="173"
+                  cy="178.5"
+                  rx="173"
+                  ry="178.5"
+                  fill="url(#paint0_linear_right)"
+                />
+                <defs>
+                  <linearGradient
+                    id="paint0_linear_right"
+                    x1="0"
+                    y1="87.2457"
+                    x2="255.501"
+                    y2="88.5747"
+                    gradientUnits="userSpaceOnUse"
+                  >
+                    <stop stopColor="white" stopOpacity="0.07" />
+                    <stop offset="1" stopColor="white" stopOpacity="0" />
+                  </linearGradient>
+                </defs>
+              </svg>
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
