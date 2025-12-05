@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { MapPin, Calendar, Briefcase } from "lucide-react";
+import { MapPin, Calendar, Briefcase, Upload } from "lucide-react";
 import { motion } from "framer-motion";
 
-export default function JobDetails() {
+export default function JobDetailsPageWithForm() {
   const [job] = useState({
     title: "Senior Front-End Developer",
     company: "Innovatech Solutions",
@@ -23,10 +23,6 @@ export default function JobDetails() {
       "Good understanding of version control (Git)",
     ],
     skills: ["React", "JavaScript", "Tailwind CSS", "HTML", "CSS", "Redux"],
-    similarJobs: [
-      { id: 1, title: "React Developer", company: "TechCorp" },
-      { id: 2, title: "UI/UX Developer", company: "DesignPro" },
-    ],
   });
 
   const [showResponsibilities, setShowResponsibilities] = useState(true);
@@ -34,8 +30,8 @@ export default function JobDetails() {
 
   return (
     <div className="min-h-screen bg-gray-50 pb-20">
-      {/* Hero / Job Title */}
-      <div className="bg-gradient-to-r from-purple-600 to-blue-600 text-white py-16 px-6 rounded-b-3xl text-center relative overflow-hidden">
+      {/* Hero Section */}
+      <div className="bg-gradient-to-r from-purple-600 to-blue-600 text-white py-16 px-6  text-center">
         <h1 className="text-4xl md:text-5xl font-extrabold mb-4">{job.title}</h1>
         <p className="text-lg mb-6">{job.company}</p>
         <div className="flex flex-wrap justify-center gap-6 text-sm md:text-base">
@@ -43,88 +39,101 @@ export default function JobDetails() {
           <span className="flex items-center gap-1"><MapPin className="w-5 h-5" /> {job.location}</span>
           <span className="flex items-center gap-1"><Calendar className="w-5 h-5" /> Posted: {job.posted}</span>
         </div>
-        <motion.button
-          whileHover={{ scale: 1.05 }}
-          className="mt-8 bg-white text-blue-600 font-bold px-8 py-3 rounded-xl shadow-lg hover:bg-gray-100 transition"
-        >
-          Apply Now
-        </motion.button>
       </div>
 
-      {/* Job Description */}
-      <div className="max-w-5xl mx-auto px-6 mt-12">
-        <h2 className="text-2xl font-bold mb-4 text-gray-800">Job Description</h2>
-        <p className="text-gray-700 mb-6">{job.description}</p>
+      {/* Main Content: Two Columns */}
+      <div className="max-w-7xl mx-auto mt-12 px-6 grid md:grid-cols-3 gap-10">
+        {/* Left Column: Job Details */}
+        <div className="md:col-span-2">
+          <h2 className="text-2xl font-bold mb-4 text-gray-800">Job Description</h2>
+          <p className="text-gray-700 mb-6">{job.description}</p>
 
-        {/* Responsibilities */}
-        <div className="mb-6">
-          <h3
-            className="text-xl font-semibold text-gray-800 cursor-pointer flex justify-between items-center"
-            onClick={() => setShowResponsibilities(!showResponsibilities)}
-          >
-            Responsibilities
-            <span>{showResponsibilities ? "-" : "+"}</span>
-          </h3>
-          {showResponsibilities && (
-            <ul className="list-disc list-inside mt-3 text-gray-700">
-              {job.responsibilities.map((item, idx) => (
-                <li key={idx}>{item}</li>
+          {/* Responsibilities */}
+          <div className="mb-6">
+            <h3
+              className="text-xl font-semibold text-gray-800 cursor-pointer flex justify-between items-center"
+              onClick={() => setShowResponsibilities(!showResponsibilities)}
+            >
+              Responsibilities
+              <span>{showResponsibilities ? "-" : "+"}</span>
+            </h3>
+            {showResponsibilities && (
+              <ul className="list-disc list-inside mt-3 text-gray-700">
+                {job.responsibilities.map((item, idx) => (
+                  <li key={idx}>{item}</li>
+                ))}
+              </ul>
+            )}
+          </div>
+
+          {/* Requirements */}
+          <div className="mb-6">
+            <h3
+              className="text-xl font-semibold text-gray-800 cursor-pointer flex justify-between items-center"
+              onClick={() => setShowRequirements(!showRequirements)}
+            >
+              Requirements
+              <span>{showRequirements ? "-" : "+"}</span>
+            </h3>
+            {showRequirements && (
+              <ul className="list-disc list-inside mt-3 text-gray-700">
+                {job.requirements.map((item, idx) => (
+                  <li key={idx}>{item}</li>
+                ))}
+              </ul>
+            )}
+          </div>
+
+          {/* Skills */}
+          <div className="mb-8">
+            <h3 className="text-xl font-semibold text-gray-800 mb-3">Skills & Technologies</h3>
+            <div className="flex flex-wrap gap-2">
+              {job.skills.map((skill, idx) => (
+                <span key={idx} className="px-3 py-1 rounded-full bg-gradient-to-r from-purple-200 to-blue-200 text-purple-800 font-semibold text-sm">
+                  {skill}
+                </span>
               ))}
-            </ul>
-          )}
-        </div>
-
-        {/* Requirements */}
-        <div className="mb-6">
-          <h3
-            className="text-xl font-semibold text-gray-800 cursor-pointer flex justify-between items-center"
-            onClick={() => setShowRequirements(!showRequirements)}
-          >
-            Requirements
-            <span>{showRequirements ? "-" : "+"}</span>
-          </h3>
-          {showRequirements && (
-            <ul className="list-disc list-inside mt-3 text-gray-700">
-              {job.requirements.map((item, idx) => (
-                <li key={idx}>{item}</li>
-              ))}
-            </ul>
-          )}
-        </div>
-
-        {/* Skills / Tags */}
-        <div className="mb-8">
-          <h3 className="text-xl font-semibold text-gray-800 mb-3">Skills & Technologies</h3>
-          <div className="flex flex-wrap gap-2">
-            {job.skills.map((skill, idx) => (
-              <span key={idx} className="px-3 py-1 rounded-full bg-gradient-to-r from-purple-200 to-blue-200 text-purple-800 font-semibold text-sm">
-                {skill}
-              </span>
-            ))}
+            </div>
           </div>
         </div>
 
-        {/* Similar Jobs */}
-        <div className="mb-12">
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">Similar Jobs</h3>
-          <div className="grid md:grid-cols-2 gap-6">
-            {job.similarJobs.map((job) => (
-              <motion.div
-                key={job.id}
-                whileHover={{ scale: 1.03 }}
-                className="bg-white rounded-2xl shadow-md p-6 hover:shadow-xl transition cursor-pointer"
-              >
-                <h4 className="text-lg font-bold mb-2">{job.title}</h4>
-                <p className="text-gray-600">{job.company}</p>
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  className="mt-4 bg-gradient-to-r from-purple-600 to-blue-600 text-white px-6 py-2 rounded-xl font-semibold shadow hover:opacity-90 transition"
-                >
-                  Apply Now
-                </motion.button>
-              </motion.div>
-            ))}
-          </div>
+        {/* Right Column: Application Form */}
+        <div className="bg-white rounded-3xl shadow-xl p-6 flex flex-col gap-4 sticky top-6">
+          <h3 className="text-2xl font-bold mb-4 text-gray-800">Apply for this job</h3>
+          <form className="flex flex-col gap-4">
+            <input
+              type="text"
+              placeholder="Full Name"
+              className="px-4 py-2 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+            <input
+              type="email"
+              placeholder="Email Address"
+              className="px-4 py-2 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+            <input
+              type="tel"
+              placeholder="Phone Number"
+              className="px-4 py-2 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+            <label className="flex items-center gap-2 px-4 py-2 border border-gray-300 rounded-xl cursor-pointer hover:bg-gray-50 transition">
+              <Upload className="w-5 h-5 text-gray-500" />
+              <span>Upload CV / Resume</span>
+              <input type="file" className="hidden" />
+            </label>
+            <textarea
+              placeholder="Cover Letter / Message"
+              rows={4}
+              className="px-4 py-2 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              className="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-6 py-3 rounded-xl font-semibold shadow-lg hover:opacity-90 transition mt-2"
+              type="submit"
+            >
+              Submit Application
+            </motion.button>
+          </form>
         </div>
       </div>
     </div>
