@@ -3,14 +3,14 @@ import { motion } from "framer-motion";
 import { Star, CheckCircle, Github, Globe, Calendar, Layers, TerminalSquare, Building, ArrowRight } from "lucide-react";
 
 export default function ITProjectDetails() {
-  const [selectedImage, setSelectedImage] = useState("/images/project/main.jpg");
+  const [selectedImage, setSelectedImage] = useState("https://cdn.tailgrids.com/assets/images/marketing/portfolio/portfolio-01/image-03.jpg");
 
   const gallery = [
-    "/images/project/main.jpg",
-    "/images/project/1.jpg",
-    "/images/project/2.jpg",
-    "/images/project/3.jpg",
-    "/images/project/4.jpg",
+    "https://cdn.tailgrids.com/assets/images/marketing/portfolio/portfolio-01/image-03.jpg",
+    "https://cdn.tailgrids.com/assets/images/marketing/portfolio/portfolio-01/image-03.jpg",
+    "https://cdn.tailgrids.com/assets/images/marketing/portfolio/portfolio-01/image-03.jpg",
+    "https://cdn.tailgrids.com/assets/images/marketing/portfolio/portfolio-01/image-03.jpg",
+    "https://cdn.tailgrids.com/assets/images/marketing/portfolio/portfolio-01/image-03.jpg",
   ];
 
   const features = [
