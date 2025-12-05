@@ -11,6 +11,7 @@ import PricingPage from "./components/Pricing";
 import Career from "./components/Career";
 import Blog from "./components/Blog";
 import JobDetails from "./components/JobDetails";
+import BlogDetails from "./components/BlogDetails";
 
 
 export default function App() {
@@ -28,6 +29,7 @@ export default function App() {
         <Route path="/career" element={<Career />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/job-details" element={<JobDetails />} />
+        <Route path="/blog-details" element={<BlogDetails />} />
         <Route path="/features/:id" element={<FeatureDetails />} />
       </Route>
     </Routes>
