@@ -9,6 +9,7 @@ import FaqPage from "./pages/Faq";
 import ProjectDetails from "./components/PortfolioDetails";
 import PricingPage from "./components/Pricing";
 import Career from "./components/Career";
+import Blog from "./components/Blog";
 
 
 export default function App() {
@@ -24,6 +25,7 @@ export default function App() {
         <Route path="/projectdetails" element={<ProjectDetails />} />
         <Route path="/pricing" element={<PricingPage />} />
         <Route path="/career" element={<Career />} />
+        <Route path="/blog" element={<Blog />} />
         <Route path="/features/:id" element={<FeatureDetails />} />
       </Route>
     </Routes>
