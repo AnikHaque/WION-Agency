@@ -134,25 +134,44 @@ export default function ITProjectDetails() {
         </div>
       </div>
 
-      {/* REVIEWS */}
+      {/* REVIEWS - CAROUSEL */}
       <div className="space-y-6">
         <h2 className="text-3xl font-bold">Client Reviews</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {reviews.map((review) => (
-            <div key={review.id} className="p-6 rounded-3xl shadow-lg border bg-white space-y-2">
-              <h3 className="font-bold text-xl">{review.name}</h3>
-              <div className="flex text-yellow-500">
-                {Array.from({ length: review.rating }).map((_, i) => (
-                  <Star key={i} fill="currentColor" size={20} />
-                ))}
+
+        {/* Carousel Wrapper */}
+        <div className="relative w-full overflow-hidden">
+          <div className="flex animate-slide gap-6">
+            {reviews.map((review) => (
+              <div
+                key={review.id}
+                className="min-w-[320px] p-6 rounded-3xl shadow-lg border bg-white space-y-2 hover:scale-105 transition cursor-pointer"
+              >
+                <h3 className="font-bold text-xl">{review.name}</h3>
+                <div className="flex text-yellow-500">
+                  {Array.from({ length: review.rating }).map((_, i) => (
+                    <Star key={i} fill="currentColor" size={20} />
+                  ))}
+                </div>
+                <p className="text-gray-600 leading-relaxed">{review.comment}</p>
               </div>
-              <p className="text-gray-600 leading-relaxed">{review.comment}</p>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
+
+        {/* Carousel CSS */}
+        <style>{`
+          @keyframes slide {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+          }
+          .animate-slide {
+            width: max-content;
+            animation: slide 12s linear infinite;
+          }
+        `}</style>
       </div>
 
-      {/* LINKS */}
+      {/* LINKS */} 
       <div className="flex flex-wrap gap-4 pt-6">
         <a className="px-6 py-3 bg-blue-600 text-white rounded-xl flex items-center gap-2 shadow hover:bg-blue-700 transition">
           <Globe /> Live Demo
