@@ -7,7 +7,7 @@ export default function CareerPage() {
   const [jobs] = useState([
     {
       id: 1,
-      title: "Front-End Developer",
+      title: "Front-End ",
       location: "Remote / Dhaka",
       type: "Full-time",
       posted: "2025-11-28",
@@ -16,7 +16,7 @@ export default function CareerPage() {
     {
       id: 2,
       title: "UI/UX Designer",
-      location: "Remote / Chittagong",
+      location: "Remote / Ctg",
       type: "Contract",
       posted: "2025-11-25",
       description: "Design stunning and intuitive interfaces for web and mobile applications in collaboration with developers and clients.",
@@ -93,7 +93,7 @@ export default function CareerPage() {
               <span className="px-3 py-1 rounded-full bg-blue-100 text-blue-600 font-semibold text-sm">{job.type}</span>
             </div>
 
-            <p className="text-gray-700 mb-6">{job.description}</p>
+            <p className="text-gray-700 mb-15">{job.description.slice(0,100)}</p>
 
             <motion.button
               whileHover={{ scale: 1.05 }}
