@@ -6,6 +6,7 @@ import Layout from "./Layout/MainLayout";
 import Portfolio from "./pages/Portfolio";
 import ContactPage from "./pages/ContactPage";
 import FaqPage from "./pages/Faq";
+import ProjectDetails from "./components/PortfolioDetails";
 
 
 export default function App() {
@@ -18,6 +19,7 @@ export default function App() {
         <Route path="/portfolio" element={<Portfolio />} />
          <Route path="/faq" element={<FaqPage />} />
         <Route path="/contact" element={<ContactPage />} />
+        <Route path="/projectdetails" element={<ProjectDetails />} />
         <Route path="/features/:id" element={<FeatureDetails />} />
       </Route>
     </Routes>
